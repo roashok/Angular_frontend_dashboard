@@ -1,5 +1,16 @@
-
-<app-toolbar>
-<main>
-  <router-outlet/>
-</main>
+<mat-toolbar class="mat-elevation-z3">
+  <button mat-icon-button (click)="collapsed.set(!collapsed())">
+      <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav opened="collapsed()" mode="side" [style.width]="sideWidth()">
+    <div class="sidenav-header">
+      Admin
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="content" [style.margin-left]="sideWidth()">
+    dwuoiadh
+      <router-outlet/>
+  </mat-sidenav-content>
+ </mat-sidenav-container>

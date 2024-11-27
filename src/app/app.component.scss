@@ -1,0 +1,15 @@
+.content{
+    padding: 24px;
+}
+.sidenav-header{
+    padding-top: 24px;
+    text-align: center;
+}
+mat-sidenav-container{
+    height: calc(100vh - 64px);
+    background-color: lightgray;
+}
+mat-toolbar {
+    position: relative;
+    z-index: 5;
+}
