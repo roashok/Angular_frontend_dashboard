@@ -1,0 +1,30 @@
+<button mat-icon-button class="close-button" (click)="ShowMenu.set(false)">
+    <mat-icon>close</mat-icon>
+</button>
+<div class="form-field">
+    <mat-form-field>
+        <mat-label>dataset</mat-label>
+        <mat-select [(value)]="dataset" required>
+            <mat-option value="1" >1</mat-option>
+            <mat-option value="2" >2</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>x axis values</mat-label>
+        <mat-select [(value)]="xaxis" required>
+            <mat-option value="1" >1</mat-option>
+            <mat-option value="2" >2</mat-option>
+            <mat-option value="3" >3</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>type of graph</mat-label>
+        <mat-select [(value)]="type" required>
+            <mat-option value="line" >line</mat-option>
+            <mat-option value="bar" >bar</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-icon-button (click)="store.addWidget(dataset(),title(),xaxis(),type())" (click)="ShowMenu.set(false)">
+        <mat-icon>check</mat-icon>
+    </button>
+</div>

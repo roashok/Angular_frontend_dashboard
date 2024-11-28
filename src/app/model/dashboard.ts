@@ -1,4 +1,4 @@
-import { Type } from "@angular/core";
+
 
 export interface widget{
     id:number;

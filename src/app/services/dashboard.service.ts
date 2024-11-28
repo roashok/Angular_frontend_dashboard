@@ -2,34 +2,55 @@ import { Injectable, signal } from '@angular/core';
 import { widget } from '../model/dashboard';
 @Injectable()
 export class DashboardService {
-   Mock = [
-    { year: 2010, count: 10, count2: 28 },
-    { year: 2011, count: 20 ,count2: 25},
-    { year: 2012, count: 15 , count2: 20},
-    { year: 2013, count: 25 , count2:19},
-    { year: 2014, count: 22 , count2:13},
-    { year: 2015, count: 30 ,count2: 41},
-    { year: 2016, count: 28 , count2:21},
-  ];
+   mock = [[
+    { year: 2010, count: 10, count2: 28, count3: 32},
+    { year: 2011, count: 20 ,count2: 25, count3: 54},
+    { year: 2012, count: 15 , count2: 20, count3: 23},
+    { year: 2013, count: 25 , count2:19, count3: 64},
+    { year: 2014, count: 22 , count2:13, count3: 75},
+    { year: 2015, count: 30 ,count2: 41, count3: 43},
+    { year: 2016, count: 28 , count2:21, count3: 84},
+  ]
+  ,[
+    { year: 2009, count: 10, count2: 28, count3: 41},
+    { year: 2010, count: 20 ,count2: 25, count3: 94},
+    { year: 2011, count: 15 , count2: 20, count3: 93},
+    { year: 2015, count: 25 , count2:19, count3: 23},
+    { year: 2016, count: 22 , count2:13, count3: 43},
+    { year: 2012, count: 30 ,count2: 41, count3: 9},
+    { year: 2017, count: 28 , count2:21, count3: 49},
+  ]];
+  currlength = 1
   widgets = signal<widget[]>([
     {
       id:0,
       type:'bar',
       title:"numbers",
-      namex: "integers",
-      contentx:this.Mock.map((m)=>m.year),
-      contenty:this.Mock.map((m)=>m.count)
+      namex: "integer",
+      contentx:this.mock[0].map((m)=>m.year),
+      contenty:this.mock[0].map((m)=>m.count)
      },
      {
       id:1,
       type:'line',
-      namex:"count",
-      contentx:this.Mock.map((m)=>m.year),
-      contenty:this.Mock.map((m)=>m.count2)
+      namex:"integer",
+      contentx:this.mock[0].map((m)=>m.year),
+      contenty:this.mock[0].map((m)=>m.count2)
      },
     ]
   )
-
+  addWidget(dataset: number,title:string, axis:number, type:string){
+    this.currlength += 1;
+    const curraxis= (axis == 1) ? "count" : ((axis == 3) ? "count3" : "count2")
+    const w = {
+      id: this.currlength,
+      type: type,
+      namex:title,
+      contentx:this.mock[dataset-1].map((m)=>m.year),
+      contenty:this.mock[dataset-1].map((m)=>m[curraxis])  
+    }
+    this.widgets.set([...this.widgets(),{...w}])
+  }
   updateWidget(id: number ,widget:Partial<widget>){
     const index = this.widgets().findIndex(w => w.id === id)
     if(index !== -1){

@@ -1,12 +1,15 @@
 <div class="header">
     <h2> Admin Dashboard</h2>
-    <button mat-raised-button>
+    <button mat-raised-button (click)="ShowMenu.set(true)">
         <mat-icon>
           add_circle  
         </mat-icon>
         Add widget
     </button>
 </div>
+@if (ShowMenu()) {
+    <app-dashboard-add  [(ShowMenu)]="ShowMenu"/>
+}
 <div class="dashboard_grid" cdkDropListGroup>
 @for (w of store.widgets(); track w.id) {
     <app-widget cdkDropList [data]="w" (cdkDropListDropped)="drop($event)" [cdkDropListData]="w.id"/>
