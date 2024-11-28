@@ -17,6 +17,17 @@ export class DashboardService {
       id:1,
       label:'OBJ2',
       content:Obj2Component
+     },
+     {
+      id:2,
+      label:'OBJ1',
+      columns:3,
+      content:Obj1Component
+     },
+     {
+      id:3,
+      label:'OBJ2',
+      content:Obj2Component
      }
     ]
   )
@@ -28,6 +39,28 @@ export class DashboardService {
       newWidget[index] = {...newWidget[index],...widget}
       this.widgets.set(newWidget)
     }
+  }
+  removeWidget(id: number){
+    this.widgets.set(this.widgets().filter(w => w.id !==id))
+  } 
+  updateWidgetPosition(sourceWidgetId:number, targetWidgetId:number){
+    const sourceIndex = this.widgets().findIndex((w) => w.id === sourceWidgetId)
+    if (sourceIndex === -1){
+      return
+    }
+
+    const newWidget = [...this.widgets()];
+    const sourceWidget = newWidget.splice(sourceIndex,1)[0];
+
+    const targetIndex = newWidget.findIndex((w) => w.id === targetWidgetId)
+    if (targetIndex === -1){
+      return
+    }
+
+    const insertAt = targetIndex === sourceIndex ? targetIndex +1 : targetIndex
+
+    newWidget.splice(insertAt,0,sourceWidget)
+    this.widgets.set(newWidget)
   }
   constructor() { }
 }

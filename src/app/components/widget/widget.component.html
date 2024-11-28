@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" cdkDrag cdkDragPreviewContainer="parent">
     <h3 class="m-0">{{data().label}}</h3>
     <button mat-icon-button class="settings-button" (click)="showOptions.set(true)">
         <mat-icon>settings</mat-icon>
@@ -7,4 +7,5 @@
     @if (showOptions()) {
         <app-widget-options [data]="data()" [(showOptions)]="showOptions"/>
     }
+    <div *cdkDragPlaceholder></div>
 </div>

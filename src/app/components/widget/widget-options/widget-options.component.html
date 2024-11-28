@@ -21,3 +21,11 @@
         <mat-button-toggle [value]="4">4</mat-button-toggle>
     </mat-button-toggle-group>
 </div>
+
+<button
+    mat-icon-button
+    class="remove-widget-button"
+    (click)="store.removeWidget(data().id)"
+    >
+    <mat-icon>delete</mat-icon>
+</button>

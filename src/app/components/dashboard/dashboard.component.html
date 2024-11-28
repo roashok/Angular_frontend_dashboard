@@ -7,8 +7,8 @@
         Add widget
     </button>
 </div>
-<div class="dashboard_grid">
+<div class="dashboard_grid" cdkDropListGroup>
 @for (w of store.widgets(); track w.id) {
-    <app-widget [data]="w"/>
+    <app-widget cdkDropList [data]="w" (cdkDropListDropped)="drop($event)" [cdkDropListData]="w.id"/>
 }
 </div> 

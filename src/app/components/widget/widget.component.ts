@@ -4,10 +4,11 @@ import { NgComponentOutlet } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { WidgetOptionsComponent } from "./widget-options/widget-options.component";
+import { CdkDrag, CdkDragHandle, CdkDragPlaceholder } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-widget',
-  imports: [NgComponentOutlet, MatButtonModule, MatIconModule, WidgetOptionsComponent],
+  imports: [NgComponentOutlet, MatButtonModule, MatIconModule, WidgetOptionsComponent,CdkDrag,CdkDragPlaceholder],
   templateUrl: './widget.component.html',
   styleUrl: './widget.component.scss',
   host: {
