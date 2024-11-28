@@ -2,8 +2,11 @@ import { Type } from "@angular/core";
 
 export interface widget{
     id:number;
-    label:string;
-    content:Type<unknown>;
+    type: string;
+    title?: string;
+    namex: string;
+    contentx:Array<unknown>;
+    contenty:Array<number>;
     rows?:number;
     columns?:number;
 }

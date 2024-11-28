@@ -1,34 +1,32 @@
 import { Injectable, signal } from '@angular/core';
 import { widget } from '../model/dashboard';
-import { Obj1Component } from '../components/widget/obj1.component';
-import { Obj2Component } from '../components/widget/obj2.component';
-
-
 @Injectable()
 export class DashboardService {
+   Mock = [
+    { year: 2010, count: 10, count2: 28 },
+    { year: 2011, count: 20 ,count2: 25},
+    { year: 2012, count: 15 , count2: 20},
+    { year: 2013, count: 25 , count2:19},
+    { year: 2014, count: 22 , count2:13},
+    { year: 2015, count: 30 ,count2: 41},
+    { year: 2016, count: 28 , count2:21},
+  ];
   widgets = signal<widget[]>([
     {
       id:0,
-      label:'OBJ1',
-      columns:3,
-      content:Obj1Component
+      type:'bar',
+      title:"numbers",
+      namex: "integers",
+      contentx:this.Mock.map((m)=>m.year),
+      contenty:this.Mock.map((m)=>m.count)
      },
      {
       id:1,
-      label:'OBJ2',
-      content:Obj2Component
+      type:'line',
+      namex:"count",
+      contentx:this.Mock.map((m)=>m.year),
+      contenty:this.Mock.map((m)=>m.count2)
      },
-     {
-      id:2,
-      label:'OBJ1',
-      columns:3,
-      content:Obj1Component
-     },
-     {
-      id:3,
-      label:'OBJ2',
-      content:Obj2Component
-     }
     ]
   )
 
