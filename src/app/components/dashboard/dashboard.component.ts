@@ -3,10 +3,12 @@ import { WidgetComponent } from '../widget/widget.component';
 import { widget } from '../../model/dashboard';
 import { DashboardService } from '../../services/dashboard.service';
 import { Obj2Component } from '../widget/obj2.component';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [WidgetComponent],
+  imports: [WidgetComponent,MatButtonModule,MatIconModule],
   providers: [DashboardService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
