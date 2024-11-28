@@ -14,10 +14,5 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  data: widget = {
-    id:0,
-    label:'OBJ2',
-    content:Obj2Component
-   }
    store = inject(DashboardService)
 }

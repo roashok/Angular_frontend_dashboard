@@ -10,6 +10,7 @@ export class DashboardService {
     {
       id:0,
       label:'OBJ1',
+      columns:3,
       content:Obj1Component
      },
      {
@@ -19,5 +20,14 @@ export class DashboardService {
      }
     ]
   )
+
+  updateWidget(id: number ,widget:Partial<widget>){
+    const index = this.widgets().findIndex(w => w.id === id)
+    if(index !== -1){
+      const newWidget = [...this.widgets()]
+      newWidget[index] = {...newWidget[index],...widget}
+      this.widgets.set(newWidget)
+    }
+  }
   constructor() { }
 }

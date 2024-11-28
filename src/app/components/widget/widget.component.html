@@ -5,6 +5,6 @@
     </button>
     <ng-container [ngComponentOutlet]="data().content"/>
     @if (showOptions()) {
-        <app-widget-options [(showOptions)]="showOptions"/>
+        <app-widget-options [data]="data()" [(showOptions)]="showOptions"/>
     }
 </div>

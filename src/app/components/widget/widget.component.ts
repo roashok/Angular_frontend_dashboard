@@ -9,7 +9,10 @@ import { WidgetOptionsComponent } from "./widget-options/widget-options.componen
   selector: 'app-widget',
   imports: [NgComponentOutlet, MatButtonModule, MatIconModule, WidgetOptionsComponent],
   templateUrl: './widget.component.html',
-  styleUrl: './widget.component.scss'
+  styleUrl: './widget.component.scss',
+  host: {
+    '[style.grid-area]': '"span " + (data().rows ?? 1) + "/ span " + (data().columns ?? 1)'
+  }
 })
 export class WidgetComponent {
  data = input.required<widget>() 
